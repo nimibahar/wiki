@@ -1,3 +1,7 @@
-<h1>Index test</h1>
-
 <%= link_to "New article", new_article_path %>
+
+<% @articles.each do |article|  %>
+  <h2><%= article.title %></h2>
+  <p>Published at <%= article.created_at.strftime('%b %d %Y') %></p>
+  <p><%= truncate(article.content, length: 200) %></p>
+<% end  %>
